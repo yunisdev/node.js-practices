@@ -18,6 +18,14 @@ const addTODO = (text)=>{
     });
     writeData(data);
 }
+const _todo = ()=>{
+    for(var i=0;i<data.data.length;i++){
+        var a = data.data[i];
+        if(a.isDone==false){
+            console.log(a.text);
+        }
+    }
+}
 const isDone = (text)=>{
     const data = getData();
     for(var i=0;i<data.data.length;i++){
@@ -57,6 +65,13 @@ yargs.command({
     describe:'Done this TODO',
     handler:(argv)=>{
         isDone(argv.title);
+    }
+})
+yargs.command({
+    command:'todo',
+    describe:'Thing to do',
+    handler:()=>{
+        _todo();
     }
 })
 yargs.parse();
