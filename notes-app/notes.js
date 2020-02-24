@@ -29,9 +29,8 @@ const addNote = (_title,_body)=>{
 const writeToJSON = (data)=>{
     fs.writeFileSync(jsonFile,JSON.stringify(data));
 }
-const loadNotes = ()=>{
-    return JSON.parse(fs.readFileSync(jsonFile).toString());
-}
+const loadNotes = ()=>JSON.parse(fs.readFileSync(jsonFile).toString());
+
 const removeNote = (title)=>{
     const _notes = loadNotes();
     for(var i =0;i<_notes.notes.length;i++){

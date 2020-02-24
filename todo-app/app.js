@@ -3,9 +3,7 @@ const fs = require('fs');
 const chalk = require('chalk');
 const yargs = require('yargs');
 
-const getData = ()=>{
-    return JSON.parse(fs.readFileSync(json).toString())
-}
+const getData = ()=>JSON.parse(fs.readFileSync(json).toString())
 const writeData = (data)=>{
     fs.writeFileSync(json,JSON.stringify(data));
 }
@@ -107,42 +105,42 @@ const listTODO = ()=>{
 yargs.command({
     command:'add',
     describe:'Add TODO',
-    handler:(argv)=>{
+    handler(argv){
         addTODO(argv.title);
     }
 }) 
 yargs.command({
     command:'list',
     describe:'List TODOs',
-    handler:()=>{
+    handler(){
         listTODO();
     }
 })
 yargs.command({
     command:'done',
     describe:'Done this TODO',
-    handler:(argv)=>{
+    handler(argv){
         isDone(argv.title);
     }
 })
 yargs.command({
     command:'todo',
     describe:'Thing to do',
-    handler:()=>{
+    handler(){
         _todo();
     }
 })
 yargs.command({
     command:'empty',
     describe:'Erases all TODOs',
-    handler:()=>{
+    handler(){
         refresh();
     }
 })
 yargs.command({
     command:'remove',
     describe:'Removes TODO',
-    handler:(argv)=>{
+    handler(argv){
         remove(argv.title);
     }
 })

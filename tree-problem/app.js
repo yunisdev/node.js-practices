@@ -1,13 +1,9 @@
 const chalk = require('chalk');
+const yargs = require('yargs');
+var treeHead=yargs.argv.head;
+var treeBody=yargs.argv.body;
 
-var treeHead=5;
-var treeBody=3;
-
-const getMaxX = (treeHead)=>{
-    return 1+(treeHead-1)*2;
-}
-
-var maxX = getMaxX(treeHead);
+var maxX = 1+(treeHead-1)*2;
 const multiChar = (count,char)=>{
     var result = '';
     for(var i=0;i<count;i++){
