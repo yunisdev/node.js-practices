@@ -11,6 +11,8 @@ module.exports = class {
             }
         }
         this.dbFile = name+'.json';
+    }
+    createNew(){
         fs.writeFileSync(this.dbFile,'[]');
     }
     getDataStr(){
