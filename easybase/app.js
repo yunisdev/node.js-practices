@@ -11,23 +11,23 @@ module.exports = class {
             }
         }
         this.dbFile = name+'.json';
-        fs.writeFileSync(this.dbFile,'{"data":[]}');
+        fs.writeFileSync(this.dbFile,'[]');
     }
     getDataStr(){
         return fs.readFileSync(this.dbFile).toString();
     }
     getDataObj(){
-        return JSON.parse(this.getDataStr()).data;
+        return JSON.parse(this.getDataStr());
     }
     writeData(data){
         fs.writeFileSync(this.dbFile,JSON.stringify(data));
     }
     push(obj){
         const data = JSON.parse(this.getDataStr());
-        data.data.push(obj);
+        data.push(obj);
         this.writeData(data);
     }
     eraseAllData(){
-        fs.writeFileSync(this.dbFile,'{"data":[]}');
+        fs.writeFileSync(this.dbFile,'[]');
     }
 }
