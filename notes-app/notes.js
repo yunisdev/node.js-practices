@@ -15,6 +15,7 @@ const titleExist = (json,title)=>{
 }
 const addNote = (_title,_body)=>{
     const _notes = loadNotes();
+
     if(titleExist(_notes,_title)==false){
         _notes.notes.push({
             title:_title,
