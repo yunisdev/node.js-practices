@@ -1,7 +1,19 @@
 const request = require('request');
 const chalk = require('chalk');
 const yargs = require('yargs');
-const urlData = `http://newsapi.org/v2/top-headlines?${yargs.argv.q ? `q=${yargs.argv.q}&` : ""}${yargs.argv.lang ? `language=${yargs.argv.lang}&` : ""}${yargs.argv.country ? `country=${yargs.argv.country}&` : ""}${yargs.argv.ctg ? `category=${yargs.argv.ctg}&` : ""}apiKey=81895a771a294e1284b5c1d18d87f361`;
+// const removespaces = (str)=>{
+//     var str_="";
+//     for(var i=0;i<str.length;i++){
+//         if(str[i]==" "){
+//             str_+="";
+//         }else{
+//             str_+=str[i];
+//         }
+//     }
+//     console.log(str_);
+//     return str_;
+// }
+const urlData = `http://newsapi.org/v2/everything?${yargs.argv.q ? `q=${yargs.argv.q}&` : ""}${yargs.argv.lang ? `language=${yargs.argv.lang}&` : ""}${yargs.argv.country ? `country=${yargs.argv.country}&` : ""}apiKey=81895a771a294e1284b5c1d18d87f361`;
 const printNews = (data) => {
     console.log(chalk.bgWhite.blue.inverse(data.title));
     if (data.author != null) console.log(chalk.green.inverse(data.author));
@@ -16,7 +28,7 @@ request({
         console.log('Unable to get news');
     } else {
         const data = response.body;
-        if (data.articles) {
+        if (data.articles.length>0) {
             console.clear();
             for (var i = 0; i < data.articles.length; i++) {
                 if (i != 0) {
