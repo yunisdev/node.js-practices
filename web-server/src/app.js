@@ -48,11 +48,19 @@ app.get('/weather', (req, res) => {
 })
 
 app.get('/help/*',(req,res)=>{
-    res.render('help404')
+    res.render('help404',{
+        title:'404 page',
+        errMessage:'Article not found',
+        name:'Yunis Huseynzade'
+    })
 })
 
 app.get('*',(req,res)=>{
-    res.render('404');
+    res.render('404',{
+        title:'404 page',
+        errMessage:'Page not found',
+        name:'Yunis Huseynzade'
+    });
 })
 
 app.listen(3000, () => {
