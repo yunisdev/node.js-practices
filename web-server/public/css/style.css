@@ -40,3 +40,23 @@ header a {
 .portrait {
     width: 250px;
 }
+
+input{
+    border:2px solid #cccccc;
+    padding:7px;
+    border-radius: 10px 0px 0px 10px;
+    outline:none;
+    transition: 0.3s all ease-out;
+}
+input:focus{
+    border-color: #888888;
+}
+button{
+    cursor: pointer;
+    border:1px solid #888888;
+    background-color: #888888;
+    color:white;
+    padding:8px;
+
+    border-radius: 0px 10px 10px 0px;
+}

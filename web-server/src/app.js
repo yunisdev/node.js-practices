@@ -18,18 +18,18 @@ hbs.registerPartials(partialsPath)
 //Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
-
+const name = "Yunis Huseynzade"
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather',
-        name: 'Yunis Huseynzade'
+        name
     });
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About',
-        name: 'Yunis Huseynzade'
+        name
     })
 })
 
@@ -37,14 +37,14 @@ app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
         message: 'ahahafhs',
-        name: 'Yunis Huseynzade'
+        name
     })
 })
 
 app.get('/weather', (req, res) => {
     if(!req.query.address){
         return res.send({
-            error:'You have not provide an address'
+            error:'Zəhmət olmasa məkan qeyd edin'
         })
     }
     const {address} = req.query;
@@ -75,15 +75,15 @@ app.get('/help/*',(req,res)=>{
     res.render('help404',{
         title:'404 page',
         errMessage:'Article not found',
-        name:'Yunis Huseynzade'
+        name
     })
 })
 
 app.get('*',(req,res)=>{
     res.render('404',{
         title:'404 page',
-        errMessage:'Page not found',
-        name:'Yunis Huseynzade'
+        errMessage:'Səhifə tapılmadı',
+        name
     });
 })
 

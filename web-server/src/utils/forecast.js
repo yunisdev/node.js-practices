@@ -3,9 +3,9 @@ const forecast = (latitude, longitude, callback) => {
     const url = 'https://api.darksky.net/forecast/4b0f21b1962ec8cee7a7dede1f1c8076/' + latitude + ',' + longitude + '?units=si&lang=az'
     request({ url, json: true }, (error, response) => {
         if (error) {
-            callback('Unable to connect to forecast server!', undefined);
+            callback('Server`ə qoşula bilmədi!', undefined);
         } else if (response.body.error) {
-            callback('Unable', undefined);
+            callback('Məlumatlar əlçatan deyil', undefined);
         } else {
             const {
                 timezone,
