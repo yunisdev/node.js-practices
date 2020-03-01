@@ -47,8 +47,12 @@ app.get('/weather', (req, res) => {
     });
 })
 
+app.get('/help/*',(req,res)=>{
+    res.render('help404')
+})
+
 app.get('*',(req,res)=>{
-    res.send('My 404 page')
+    res.render('404');
 })
 
 app.listen(3000, () => {
